@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fractal</title>
+    <link rel="stylesheet" href="fractal.css" />
+    <script src="fractal.js" defer></script>
+    <script src="angle.js" defer></script>
+  </head>
+  <body>
+    <div class="page_container">
+      <div class="square_adding_container">
+        <h1 style="text-decoration:underline;">Add Square</h1>
+        <div class="square_option">
+          <p>Starting Color:</p>
+          <input type="color" id="colorPicker" value="#FFFFFF"/>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+        <div class="square_option">
+          <p>Starting Angle:</p>
+          <p id="angleText">0</p>
+        </div>
+          <div class="angle_picker">
+            <div class="angle_indicator"></div>
+          </div>
+          
+        </div>
+        <div class="square_option">
+          <p>Square Width</p>
+          <input type="range" min="4" max="120" value="80" class="slider" id="widthSlider">
+          <p id="widthText">80px</p>
+        </div>
+        <div class="square_option">
+          <p>Square Length</p>
+          <input type="range" min="4" max="120" value="80" class="slider" id="lengthSlider">
+          <p id="lengthText">80px</p>
+        </div>
+        <div class="square_option">
+          <div class="display_square" id="displaySquare"></div>
+        </div>
+      </div>
+      <div class="canvas_container">
+        <canvas id="canvas" class="canvas" width="800" height="800"> </canvas>
+        <div class="buttons">
+            <button id="playBtn">Play</button>
+            <div class="range_container">
+              <div class="slidecontainer">
+                <p>Iteration timer</p>
+                <input type="range" min="2" max="800" value="200" class="slider" id="timerSlider">
+              </div>
+              <p id="timerText">500 ms</p>
+            </div>
+            <div class="range_container">
+              <div class="slidecontainer">
+                <p>Movement speed</p>
+                <input type="range" min="2" max="100" value="25" class="slider" id="speedSlider">
+              </div>
+              <p id="speedText">25 units</p>
+            </div>
+            <div class="rotate_container">
+              <div class="rotateContainer">
+                <p>Rotate</p>
+                <input type="range" min="-45" max="45" value="0" class="slider" id="rotateSlider">
+              </div>
+              <p id="rotateText">0 degrees</p>
+            </div>
+        </div>
+      </div>
+      <div class="canvas_options_column">
+      <h1 id="iterText">Iterations: 0</h1>
+      <h1 id="collisionText">Collisions: 0</h1>
+      <h1 id="deltaCollisionText">Collisions per second: 0</h1>
+      <h1 id="deltaCollisionAverageText">Average collision rate: 0</h1>
+      <h1 id="fpsCounter">FPS: </h1>
+        <fieldset class="canvas_options">
+          <legend>Canvas Options:</legend>
+        <div>
+          <input type="checkbox" id="colorChangeBox" class="canvas_option" name="colorChange" checked>
+          <label>Change colors automatically?</label>
+        </div>
+        <div>
+          <input type="checkbox" id="trailsBox" class="canvas_option" name="trails" checked>
+          <label>Allow Trails?</label>
+        </div>
+        <div>
+          <input type="checkbox" id="audioBox" class="canvas_option" name="audio" checked>
+          <label>Audio?</label>
+        </div>
+
+        <div>
+          <button id="clearCanvas">Clear Canvas</button>
+        </div>
+        </fieldset>
+      </div>
+    </div>
+  </body>
+</html>
